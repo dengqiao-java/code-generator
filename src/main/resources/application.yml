@@ -4,12 +4,12 @@ server:
 # mysql
 spring:
   datasource:
-    type: com.alibaba.druid.pool.DruidDataSource
+    #type: com.alibaba.druid.pool.DruidDataSource
 #MySQL\u914D\u7F6E
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.220.56.35:3306/ikms?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: ikms_web
-    password: "!ikms_web_xhj827!"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.0.43.25:3306/mes-report?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: mes_user
+    password: mes_pwd
   #    url: jdbc:mysql://192.168.3.101:3306/ikms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
 #    username: ikms
 #    password: "IkmsPass0510!"
@@ -46,5 +46,5 @@ pagehelper:
 
 
 #\u6307\u5B9A\u6570\u636E\u5E93\uFF0C\u53EF\u9009\u503C\u6709\u3010mysql\u3001oracle\u3001sqlserver\u3001postgresql\u3011
-yimi:
+dengqiao:
   database: mysql

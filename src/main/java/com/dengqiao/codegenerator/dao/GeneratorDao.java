@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.dao;
+package com.dengqiao.codegenerator.dao;
 
 import java.util.List;
 import java.util.Map;

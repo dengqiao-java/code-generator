@@ -1,4 +1,4 @@
-package com.yimi.codegenerator;
+package com.dengqiao.codegenerator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

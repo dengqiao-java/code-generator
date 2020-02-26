@@ -1,7 +1,7 @@
-package com.yimi.codegenerator.exception;
+package com.dengqiao.codegenerator.exception;
 
 import com.alibaba.fastjson.JSON;
-import com.yimi.codegenerator.utils.R;
+import com.dengqiao.codegenerator.utils.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 @Slf4j
 public class RRExceptionHandler implements HandlerExceptionResolver {
+    @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         R r = new R();
         try {

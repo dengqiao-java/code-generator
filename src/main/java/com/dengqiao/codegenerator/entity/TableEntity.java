@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.entity;
+package com.dengqiao.codegenerator.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -17,5 +17,5 @@ public class TableEntity {
     private ColumnEntity pk;
     private List<ColumnEntity> columns;
     private String className;
-    private String classname;
+    private String className0;
 }

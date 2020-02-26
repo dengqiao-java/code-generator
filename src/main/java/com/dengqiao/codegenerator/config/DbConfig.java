@@ -1,7 +1,7 @@
-package com.yimi.codegenerator.config;
+package com.dengqiao.codegenerator.config;
 
-import com.yimi.codegenerator.dao.*;
-import com.yimi.codegenerator.exception.RRException;
+import com.dengqiao.codegenerator.dao.*;
+import com.dengqiao.codegenerator.exception.RRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Primary;
  */
 @Configuration
 public class DbConfig {
-    @Value("${yimi.database}")
+    @Value("${dengqiao.database}")
     private String database;
 
     @Autowired
@@ -32,12 +32,15 @@ public class DbConfig {
     @Bean
     @Primary
     public GeneratorDao getGeneratorDao() {
-        if ("mysql".equalsIgnoreCase(this.database))
+        if ("mysql".equalsIgnoreCase(this.database)) {
             return this.mySQLGeneratorDao;
-        if ("oracle".equalsIgnoreCase(this.database))
+        }
+        if ("oracle".equalsIgnoreCase(this.database)) {
             return this.oracleGeneratorDao;
-        if ("sqlserver".equalsIgnoreCase(this.database))
+        }
+        if ("sqlserver".equalsIgnoreCase(this.database)) {
             return this.sqlServerGeneratorDao;
+        }
         if ("postgresql".equalsIgnoreCase(this.database)) {
             return this.postgreSQLGeneratorDao;
         }

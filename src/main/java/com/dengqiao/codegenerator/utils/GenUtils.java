@@ -1,7 +1,7 @@
-package com.yimi.codegenerator.utils;
+package com.dengqiao.codegenerator.utils;
 
-import com.yimi.codegenerator.entity.ColumnEntity;
-import com.yimi.codegenerator.entity.TableEntity;
+import com.dengqiao.codegenerator.entity.ColumnEntity;
+import com.dengqiao.codegenerator.entity.TableEntity;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-import com.yimi.codegenerator.exception.RRException;
+import com.dengqiao.codegenerator.exception.RRException;
 import org.apache.commons.configuration.Configuration;
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
@@ -41,10 +41,8 @@ public class GenUtils {
         templates.add("template/ServiceImpl.java.vm");
         templates.add("template/Controller.java.vm");
         templates.add("template/menu.sql.vm");
-
         templates.add("template/index.vue.vm");
         templates.add("template/add-or-update.vue.vm");
-
         return templates;
     }
 
@@ -53,12 +51,12 @@ public class GenUtils {
         boolean hasBigDecimal = false;
 
         TableEntity tableEntity = new TableEntity();
-        tableEntity.setTableName((String) table.get("tableName"));
-        tableEntity.setComments((String) table.get("tableComment"));
+        tableEntity.setTableName(table.get("tableName"));
+        tableEntity.setComments(table.get("tableComment"));
 
         String className = tableToJava(tableEntity.getTableName(), config.getString("tablePrefix"));
         tableEntity.setClassName(className);
-        tableEntity.setClassname(StringUtils.uncapitalize(className));
+        tableEntity.setClassName0(StringUtils.uncapitalize(className));
 
         List columsList = new ArrayList();
         for (Map column : columns) {
@@ -70,7 +68,7 @@ public class GenUtils {
 
             String attrName = columnToJava(columnEntity.getColumnName());
             columnEntity.setAttrName(attrName);
-            columnEntity.setAttrname(StringUtils.uncapitalize(attrName));
+            columnEntity.setAttrName0(StringUtils.uncapitalize(attrName));
 
             String attrType = config.getString(columnEntity.getDataType(), "unknowType");
             columnEntity.setAttrType(attrType);
@@ -87,22 +85,22 @@ public class GenUtils {
         tableEntity.setColumns(columsList);
 
         if (tableEntity.getPk() == null) {
-            tableEntity.setPk((ColumnEntity) tableEntity.getColumns().get(0));
+            tableEntity.setPk(tableEntity.getColumns().get(0));
         }
 
         Properties prop = new Properties();
         prop.put("file.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
         Velocity.init(prop);
         String mainPath = config.getString("mainPath");
-        mainPath = StringUtils.isBlank(mainPath) ? "io.ikms-behind" : mainPath;
+        mainPath = StringUtils.isBlank(mainPath) ? "com.dengqiao" : mainPath;
 
         Map map = new HashMap();
         map.put("tableName", tableEntity.getTableName());
         map.put("comments", tableEntity.getComments());
         map.put("pk", tableEntity.getPk());
         map.put("className", tableEntity.getClassName());
-        map.put("classname", tableEntity.getClassname());
-        map.put("pathName", tableEntity.getClassname().toLowerCase());
+        map.put("className0", tableEntity.getClassName0());
+        map.put("pathName", tableEntity.getClassName0().toLowerCase());
         map.put("columns", tableEntity.getColumns());
         map.put("hasBigDecimal", Boolean.valueOf(hasBigDecimal));
         map.put("mainPath", mainPath);

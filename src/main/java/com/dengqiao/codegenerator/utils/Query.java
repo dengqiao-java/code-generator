@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.utils;
+package com.dengqiao.codegenerator.utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.yimi.codegenerator;
+package com.dengqiao.codegenerator;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

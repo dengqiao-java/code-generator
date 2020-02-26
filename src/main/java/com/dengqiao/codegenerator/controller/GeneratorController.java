@@ -1,10 +1,10 @@
-package com.yimi.codegenerator.controller;
+package com.dengqiao.codegenerator.controller;
 
 import cn.hutool.core.date.DateUtil;
-import com.yimi.codegenerator.service.GeneratorService;
-import com.yimi.codegenerator.utils.PageUtils;
-import com.yimi.codegenerator.utils.Query;
-import com.yimi.codegenerator.utils.R;
+import com.dengqiao.codegenerator.service.GeneratorService;
+import com.dengqiao.codegenerator.utils.PageUtils;
+import com.dengqiao.codegenerator.utils.Query;
+import com.dengqiao.codegenerator.utils.R;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -38,7 +39,7 @@ public class GeneratorController {
             throws IOException {
         byte[] data = this.generatorService.generatorCode(moduleName, author, email, tables.split(","));
         response.reset();
-        response.setHeader("Content-Disposition", "attachment; filename=\"code-generator-" + DateUtil.parse(DateUtil.now().toString(), "yyyy-MM-dd HH:mm:ss") + ".zip\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\"code-generator-" + DateUtil.format(new Date(),"yyyyMMddHHmmss") + ".zip\"");
         response.addHeader("Content-Length", "" + data.length);
         response.setContentType("application/octet-stream; charset=UTF-8");
         IOUtils.write(data, response.getOutputStream());

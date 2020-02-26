@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.dao;
+package com.dengqiao.codegenerator.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 

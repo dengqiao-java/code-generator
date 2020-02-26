@@ -1,11 +1,11 @@
-package com.yimi.codegenerator.service;
+package com.dengqiao.codegenerator.service;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.yimi.codegenerator.dao.GeneratorDao;
-import com.yimi.codegenerator.utils.GenUtils;
-import com.yimi.codegenerator.utils.PageUtils;
-import com.yimi.codegenerator.utils.Query;
+import com.dengqiao.codegenerator.dao.GeneratorDao;
+import com.dengqiao.codegenerator.utils.GenUtils;
+import com.dengqiao.codegenerator.utils.PageUtils;
+import com.dengqiao.codegenerator.utils.Query;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

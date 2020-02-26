@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.entity;
+package com.dengqiao.codegenerator.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,7 @@ public class ColumnEntity {
     private String dataType;
     private String comments;
     private String attrName;
-    private String attrname;
+    private String attrName0;
     private String attrType;
     private String extra;
 }

@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.dao;
+package com.dengqiao.codegenerator.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2019-09-17 09:39
  */
 @Mapper
-public interface PostgreSQLGeneratorDao extends GeneratorDao{
+public interface SQLServerGeneratorDao extends GeneratorDao{
 }

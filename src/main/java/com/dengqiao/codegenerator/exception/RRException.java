@@ -1,4 +1,4 @@
-package com.yimi.codegenerator.exception;
+package com.dengqiao.codegenerator.exception;
 
 /**
  * @author dengqiao

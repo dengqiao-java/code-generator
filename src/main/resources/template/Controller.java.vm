@@ -29,7 +29,7 @@ import ${mainPath}.common.utils.R;
 @RequestMapping("${moduleName}/${pathName}")
 public class ${className}Controller {
     @Autowired
-    private ${className}Service ${classname}Service;
+    private ${className}Service ${className0}Service;
 
     /**
      * 列表
@@ -37,7 +37,7 @@ public class ${className}Controller {
     @RequestMapping("/list")
     @RequiresPermissions("${moduleName}:${pathName}:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = ${classname}Service.queryPage(params);
+        PageUtils page = ${className0}Service.queryPage(params);
 
         return R.ok().put("page", page);
     }
@@ -46,12 +46,12 @@ public class ${className}Controller {
     /**
      * 信息
      */
-    @RequestMapping("/info/{${pk.attrname}}")
+    @RequestMapping("/info/{${pk.attrName0}}")
     @RequiresPermissions("${moduleName}:${pathName}:info")
-    public R info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
-		${className}Entity ${classname} = ${classname}Service.getById(${pk.attrname});
+    public R info(@PathVariable("${pk.attrName0}") ${pk.attrType} ${pk.attrName0}){
+		${className}Entity ${className0} = ${className0}Service.getById(${pk.attrName0});
 
-        return R.ok().put("${pathName}", ${classname});
+        return R.ok().put("${pathName}", ${className0});
     }
 
     /**
@@ -59,8 +59,8 @@ public class ${className}Controller {
      */
     @RequestMapping("/save")
     @RequiresPermissions("${moduleName}:${pathName}:save")
-    public R save(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.save(${classname});
+    public R save(@RequestBody ${className}Entity ${className0}){
+		${className0}Service.save(${className0});
 
         return R.ok();
     }
@@ -70,8 +70,8 @@ public class ${className}Controller {
      */
     @RequestMapping("/update")
     @RequiresPermissions("${moduleName}:${pathName}:update")
-    public R update(@RequestBody ${className}Entity ${classname}){
-		${classname}Service.updateById(${classname});
+    public R update(@RequestBody ${className}Entity ${className0}){
+		${className0}Service.updateById(${className0});
 
         return R.ok();
     }
@@ -81,8 +81,8 @@ public class ${className}Controller {
      */
     @RequestMapping("/delete")
     @RequiresPermissions("${moduleName}:${pathName}:delete")
-    public R delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
-		${classname}Service.removeByIds(Arrays.asList(${pk.attrname}s));
+    public R delete(@RequestBody ${pk.attrType}[] ${pk.attrName0}s){
+		${className0}Service.removeByIds(Arrays.asList(${pk.attrName0}s));
 
         return R.ok();
     }

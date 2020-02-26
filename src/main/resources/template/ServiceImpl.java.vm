@@ -13,7 +13,7 @@ import ${package}.${moduleName}.entity.${className}Entity;
 import ${package}.${moduleName}.service.${className}Service;
 
 
-@Service("${classname}Service")
+@Service("${className0}Service")
 public class ${className}ServiceImpl extends ServiceImpl<${className}Dao, ${className}Entity> implements ${className}Service {
 
     @Override
