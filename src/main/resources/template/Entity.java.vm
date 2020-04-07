@@ -1,12 +1,11 @@
 package ${package}.${moduleName}.entity;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import ${mainPath}.common.entity.BaseEntity;
 
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
 #end
-import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
@@ -19,17 +18,17 @@ import lombok.Data;
  */
 @Data
 @TableName("${tableName}")
-public class ${className}Entity implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class ${className}Entity extends BaseEntity {
+
 
 #foreach ($column in $columns)
+	#if($column.columnName != "id"&&$column.columnName != "remarks"&&$column.columnName != "create_user"&&$column.columnName != "create_time"
+	&&$column.columnName != "update_user"&&$column.columnName != "update_time"&&$column.columnName != "del_flag")
 	/**
-	 * $column.comments
-	 */
-	#if($column.columnName == $pk.columnName)
-@TableId
+		* $column.comments
+		*/
+	private $column.attrType $column.attrName0;
 	#end
-private $column.attrType $column.attrName0;
 #end
 
 }

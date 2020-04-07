@@ -1,10 +1,7 @@
 package ${package}.${moduleName}.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import ${mainPath}.common.utils.PageUtils;
+import ${mainPath}.common.service.BaseService;
 import ${package}.${moduleName}.entity.${className}Entity;
-
-import java.util.Map;
 
 /**
  * ${comments}
@@ -13,8 +10,7 @@ import java.util.Map;
  * @email ${email}
  * @date ${datetime}
  */
-public interface ${className}Service extends IService<${className}Entity> {
+public interface ${className}Service extends BaseService<${className}Entity> {
 
-    PageUtils queryPage(Map<String, Object> params);
 }
 
