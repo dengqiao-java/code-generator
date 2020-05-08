@@ -7,9 +7,9 @@ spring:
     #type: com.alibaba.druid.pool.DruidDataSource
 #MySQL\u914D\u7F6E
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.0.43.31:3306/dpp-sys?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
-    username: ikms
-    password: IkmsPass0910!
+    url: jdbc:mysql://127.0.0.1:3306/data-center?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
   #    url: jdbc:mysql://192.168.3.101:3306/ikms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
 #    username: ikms
 #    password: "IkmsPass0510!"

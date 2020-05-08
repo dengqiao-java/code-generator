@@ -15,7 +15,7 @@ import ${package}.${moduleName}.entity.${className}Entity;
 import ${package}.${moduleName}.service.${className}Service;
 import ${mainPath}.db.util.PageUtils;
 import ${mainPath}.common.vo.BaseResp;
-import ${mainPath}.common.controller.BaseController;
+import ${mainPath}.i18n.controller.BaseI18nController;
 
 
 
@@ -28,7 +28,7 @@ import ${mainPath}.common.controller.BaseController;
  */
 @RestController
 @RequestMapping("${pathName}")
-public class ${className}Controller extends BaseController {
+public class ${className}I18nController extends BaseI18nController {
     @Autowired
     private ${className}Service ${className0}Service;
 
@@ -39,7 +39,7 @@ public class ${className}Controller extends BaseController {
     @RequiresPermissions("${moduleName}:${pathName}:list")
     public BaseResp<PageUtils> list(@RequestParam Map<String, Object> params){
         PageUtils page = ${className0}Service.queryPage(params);
-        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, "查询成功", page);
+        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, getLocalMessage("common.query.success"), page);
     }
 
 
@@ -50,7 +50,7 @@ public class ${className}Controller extends BaseController {
     @RequiresPermissions("${moduleName}:${pathName}:info")
     public BaseResp<${className}Entity> info(@PathVariable("${pk.attrName0}") ${pk.attrType} ${pk.attrName0}){
 		${className}Entity ${className0} = ${className0}Service.getById(${pk.attrName0});
-        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, "查询成功", ${className0});
+        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, getLocalMessage("common.query.success"), ${className0});
     }
 
     /**
@@ -60,7 +60,7 @@ public class ${className}Controller extends BaseController {
     @RequiresPermissions("${moduleName}:${pathName}:save")
     public BaseResp save(@RequestBody ${className}Entity ${className0}){
 		${className0}Service.save(${className0});
-        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, "新增成功", null);
+        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, getLocalMessage("common.insert.success"), null);
     }
 
     /**
@@ -70,7 +70,7 @@ public class ${className}Controller extends BaseController {
     @RequiresPermissions("${moduleName}:${pathName}:update")
     public BaseResp update(@RequestBody ${className}Entity ${className0}){
 		${className0}Service.updateById(${className0});
-        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, "修改成功", null);
+        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, getLocalMessage("common.update.success"), null);
     }
 
     /**
@@ -80,7 +80,7 @@ public class ${className}Controller extends BaseController {
     @RequiresPermissions("${moduleName}:${pathName}:delete")
     public BaseResp delete(@RequestBody ${pk.attrType}[] ${pk.attrName0}s){
 		${className0}Service.removeByIds(Arrays.asList(${pk.attrName0}s));
-        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, "删除成功", null);
+        return BaseResp.getBaseResp(BaseResp.SUCCESS_CODE, getLocalMessage("common.delete.success"), null);
     }
 
 }

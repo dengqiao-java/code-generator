@@ -40,6 +40,7 @@ public class GenUtils {
         templates.add("template/Service.java.vm");
         templates.add("template/ServiceImpl.java.vm");
         templates.add("template/Controller.java.vm");
+        templates.add("template/I18nController.java.vm");
         templates.add("template/menu.sql.vm");
         templates.add("template/index.vue.vm");
         templates.add("template/add-or-update.vue.vm");
@@ -177,7 +178,9 @@ public class GenUtils {
             return packagePath + "service" + File.separator + "impl" + File.separator + className + "ServiceImpl.java";
         }
 
-        if (template.contains("Controller.java.vm")) {
+        if (template.contains("I18nController.java.vm")) {
+            return packagePath + "controller" + File.separator + className + "I18nController.java";
+        }else if (template.contains("Controller.java.vm")) {
             return packagePath + "controller" + File.separator + className + "Controller.java";
         }
 

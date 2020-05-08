@@ -1,7 +1,7 @@
 package ${package}.${moduleName}.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import ${mainPath}.common.entity.BaseEntity;
+import ${mainPath}.db.entity.BaseDbEntity;
 
 #if(${hasBigDecimal})
 import java.math.BigDecimal;
@@ -18,15 +18,16 @@ import lombok.Data;
  */
 @Data
 @TableName("${tableName}")
-public class ${className}Entity extends BaseEntity {
+public class ${className}Entity extends BaseDbEntity {
 
 
 #foreach ($column in $columns)
 	#if($column.columnName != "id"&&$column.columnName != "remarks"&&$column.columnName != "create_user"&&$column.columnName != "create_time"
 	&&$column.columnName != "update_user"&&$column.columnName != "update_time"&&$column.columnName != "del_flag")
+
 	/**
-		* $column.comments
-		*/
+     * $column.comments
+     */
 	private $column.attrType $column.attrName0;
 	#end
 #end

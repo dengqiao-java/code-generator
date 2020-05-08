@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import ${package}.${moduleName}.dao.${className}Dao;
 import ${package}.${moduleName}.entity.${className}Entity;
-import ${mainPath}.common.service.impl.BaseServiceImpl;
+import ${mainPath}.db.service.impl.BaseServiceImpl;
 import ${package}.${moduleName}.service.${className}Service;
 
 

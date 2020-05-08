@@ -1,6 +1,6 @@
 package ${package}.${moduleName}.service;
 
-import ${mainPath}.common.service.BaseService;
+import ${mainPath}.db.service.BaseService;
 import ${package}.${moduleName}.entity.${className}Entity;
 
 /**
